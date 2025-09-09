@@ -1,0 +1,231 @@
+/* src/styles.css */
+:root {
+  --accent: #6d88a6;
+  --accent-hover: #8aa6c4;
+  --border: #333333;
+  --font-heading: 'Playfair Display', 'Times New Roman', serif;
+  --font-body: 'Libre Baskerville', 'Georgia', serif;
+}
+
+/* Day theme */
+:root[data-theme="day"] {
+  --bg-primary: #e0e0e0;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #1e1e1e;
+  --text-secondary: #333333;
+  --bg-hover: #cecece;
+}
+
+/* Night theme */
+:root[data-theme="night"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --bg-hover: #706b6b;
+}
+
+body {
+    font-family: var(--font-body), serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+header {
+    background-color: var(--bg-secondary);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#logo {
+    font-family: var(--font-heading), serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: var(--accent-hover);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section {
+    margin-bottom: 60px;
+    padding: 30px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--bg-secondary);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section h1 {
+    font-family: var(--font-heading), serif;
+    margin-bottom: 25px;
+    color: var(--accent);
+    font-size: 2em;
+    letter-spacing: 0.5px;
+    border-left: 3px solid var(--accent);
+    padding-left: 15px;
+}
+
+.section p {
+    color: var(--text-secondary);
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+
+.section a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.section a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+#contact p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#contact a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: rgba(109, 136, 166, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#contact a:hover {
+    background-color: rgba(109, 136, 166, 0.2);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+footer {
+    background-color: var(--bg-secondary);
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+}
+
+#about {
+    display: flex;
+    align-items: center; /* Vertically centers content */
+    gap: 20px; /* Adds space between the image and text */
+}
+
+.image-container img {
+    max-width: 150px; /* Adjust the image size as needed */
+    border-radius: 10%; /* Optional: Rounds the image */
+}
+
+strong {
+    background-color: var(--bg-secondary);
+    border-left: 4px solid var(--border);
+    padding: 0.6rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+strong:hover {
+    background-color: var(--bg-hover);
+}
+
+.content-description {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--border);
+}

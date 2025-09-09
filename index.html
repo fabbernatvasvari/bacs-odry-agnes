@@ -7,7 +7,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="src/styles.css">
   <title>Ágnes Bács-Ódry - Webpage</title>
 </head>
 
@@ -30,6 +30,12 @@
           Language:
           <a href="#" class="lang-btn" data-lang="en">English</a> |
           <a href="#" class="lang-btn" data-lang="hu">Magyar</a>
+        </span>
+        <div class="separator">|</div>
+        <span class="navbar-text">
+          Theme:
+          <a href="#" data-theme-toggle="day" class="lang-btn" data-lang="en">Day</a> |
+          <a href="#" data-theme-toggle="night" class="lang-btn" data-lang="hu">Night</a>
         </span>
       </div>
     </div>
@@ -116,13 +122,42 @@
         <li>Wrote articles, participated at conferences<br></li>
         <li>Taught undergraduate students (Writing Skills, Reading Skills)<br></li>
       </ul>
-      
+
       </p>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+  <script>
+    const settings = {
+      "language": "english",
+      "theme": "day"
+    };
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+
+    // Apply initial theme
+    applyTheme(settings.theme);
+
+    // Example: switching on click
+    document.querySelectorAll('[data-theme-toggle]').forEach(el => {
+      el.addEventListener('click', () => {
+        const newTheme = el.getAttribute('data-theme-toggle');
+        settings.theme = newTheme;
+        applyTheme(newTheme);
+      });
+    });
+  </script>
+
+
+
 
   <!-- Translations script -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const translations = {
       title: ["Ágnes Bács-Ódry - Webpage", "Bács-Ódry Ágnes honlapja"],
